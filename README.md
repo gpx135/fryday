@@ -9,7 +9,7 @@
   * Operating hours
   * Contact information
 - Dynamic Menu Display
-  * Categorized menu items (e.g., appetizers, main courses, desserts)
+  * Categorized menu items (e.g., dishes, desserts)
   * Detailed descriptions for each dish
   * High-quality images for each menu item
   * Price display with any applicable discounts
@@ -82,7 +82,7 @@
   * Push notifications for status changes (if app is developed)
 
 ### 1.5 Payment Options
-- Cash on Delivery (货到付款)
+- Cash on Delivery
   * Clear instructions for COD process
   * Option to specify exact change needed
 - Preparation for Future Online Payments
