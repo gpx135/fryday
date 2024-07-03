@@ -73,7 +73,7 @@
 - Order Status Tracking
   * Real-time updates on order status (received, preparing, ready for pickup/delivery)
   * Estimated time of completion
-  * Push notifications for status changes (if app is developed)
+  * Push notifications for status changes (if the app is developed)
 
 ### 1.5 Payment Options
 - Cash on Delivery
@@ -134,7 +134,7 @@
   * Clear distinction of interactive elements in dark mode
 - Preference Persistence
   * Save the user's theme preference to local storage
-  * Respect user's system-wide dark mode setting (optional)
+  * Respect the user's system-wide dark mode setting (optional)
 
 ## 2. Technical Optimizations
 
