@@ -43,7 +43,7 @@
 
 ### 1.3 Table Reservation System
 - Interactive Reservation Form
-  * Date and time selection with calendar interface
+  * Date and time selection with a calendar interface
   * Party size input
   * Special requests/notes field
 - Confirmation Process
@@ -77,7 +77,7 @@
 
 ### 1.5 Payment Options
 - Cash on Delivery
-  * Clear instructions for COD process
+  * Clear instructions for the COD process
   * Option to specify exact change needed
 - Preparation for Future Online Payments
   * Placeholder for credit/debit card payments
@@ -115,7 +115,7 @@
 - Tailwind CSS Implementation
   * Consistent use of Tailwind utility classes
   * Custom styling to match restaurant branding
-- shadcn UI Component Integration
+- Shadcn UI Component Integration
   * Utilization of pre-built, customizable UI components
   * Consistent design language across the site
 - Cross-Browser Compatibility
@@ -133,7 +133,7 @@
   * Maintain WCAG color contrast standards in both modes
   * Clear distinction of interactive elements in dark mode
 - Preference Persistence
-  * Save user's theme preference to local storage
+  * Save the user's theme preference to local storage
   * Respect user's system-wide dark mode setting (optional)
 
 ## 2. Technical Optimizations
@@ -173,7 +173,7 @@
   * HTTP to HTTPS redirection
 - CSRF Protection
   * Implement CSRF tokens in all forms
-  * Validate CSRF tokens on the server-side
+  * Validate CSRF tokens on the server side
 - Input Validation and Sanitization
   * Server-side validation of all user inputs
   * Sanitize data to prevent XSS attacks
@@ -186,7 +186,7 @@
 
 ### 2.4 Internationalization
 - Multi-language Support
-  * Implement language switching functionality
+  * Implement language-switching functionality
   * Translate all static content
   * Use appropriate libraries for handling translations (e.g., react-intl)
 - Currency Conversion
@@ -201,7 +201,7 @@
 ### 3.2 Loyalty Program
 - Points System
   * Award points for reservations, orders, and other actions
-  * Display point balance in user account
+  * Display point balance in the user account
 - Tiered Rewards
   * Create different membership levels based on points or spending
   * Offer exclusive benefits for higher tiers
@@ -212,13 +212,12 @@
   * Virtual stamp cards for repeat visits
   * Easy point redemption process
 
-
 ### 3.4 Social Media Integration
 - Social Sharing
   * Add share buttons for menu items and special offers
   * Open Graph tags for rich sharing on social platforms
 - Social Media Feed Display
-  * Embed restaurant's social media feeds on the website
+  * Embed the restaurant's social media feeds on the website
   * Showcase user-generated content (with permission)
 - Social Media Marketing Tools
   * Easy creation of social media posts from the admin dashboard
@@ -246,7 +245,7 @@
   * Tags for common dietary needs (vegetarian, vegan, gluten-free, etc.)
   * Allergen information for each dish
 - Filtering System
-  * Allow users to filter menu based on dietary restrictions
+  * Allow users to filter the menu based on dietary restrictions
   * Save dietary preferences in user profiles
 - Nutritional Information
   * Display calorie counts and macronutrients where possible
@@ -271,7 +270,7 @@
   * Send immediate confirmation of receipt
   * Provide estimated response time
 - Inquiry Management
-  * Route inquiries to appropriate department
+  * Route inquiries to the appropriate department
   * Integration with customer service management system (if applicable)
 
 ### 4.4 Gift Card System
@@ -286,7 +285,6 @@
 - Gift Card Tracking
   * Unique codes for each gift card
   * Transaction history for gift card usage
-
 
 ## 5. Technical Stack and Development Practices
 
@@ -317,19 +315,17 @@
 - Tailwind CSS
   * Utilize utility classes for rapid development
   * Customize theme to match restaurant branding
-- shadcn UI
+- Shadcn UI
   * Leverage pre-built components for consistent design
   * Customize components as needed
 
 ### 5.6 Version Control
 - Git
-  * Follow Git Flow or similar branching strategy
-  * Implement code review process
 
 ### 5.7 Testing
 - Unit Testing
   * Jest for JavaScript/React components
-  * Django's testing framework for backend
+  * Django's testing framework for the backend
 - Integration Testing
   * End-to-end testing with tools like Cypress
 - Accessibility Testing
