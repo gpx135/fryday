@@ -24,21 +24,21 @@
 - Comprehensive Q&A
   * Cover common topics (reservations, menu, policies, etc.)
   * Regular updates based on customer inquiries
-- Categorization
   * Organize FAQ into logical categories for easy navigation
   * Use clear, concise headings
-- Contact Form User-Friendly Design
+- Contact Form
+  * User-Friendly Design
   * Clear, easy-to-use form layout
   * Minimal required fields to reduce friction
-- Form Validation
+  * Form Validation
   * Real-time validation for required fields
   * Format checking for email addresses and phone numbers
-- Auto-Responder
+  * Auto-Responder
   * Send immediate confirmation of receipt
   * Provide estimated response time
-- Inquiry Management
+  * Inquiry Management
   * Route inquiries to the appropriate department
-- Feedback places? Like up vote or down vote
+- Feedback places or menu suggestions? Like upvote or downvote
 
 ### User Authentication System
 - Email/Password Registration and Login
