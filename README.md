@@ -21,7 +21,26 @@
 - Image Gallery
   * High-quality images of restaurant ambiance
   * Photos of signature dishes
+- Comprehensive Q&A
+  * Cover common topics (reservations, menu, policies, etc.)
+  * Regular updates based on customer inquiries
+- Categorization
+  * Organize FAQ into logical categories for easy navigation
+  * Use clear, concise headings
 
+### Contact Form
+- User-Friendly Design
+  * Clear, easy-to-use form layout
+  * Minimal required fields to reduce friction
+- Form Validation
+  * Real-time validation for required fields
+  * Format checking for email addresses and phone numbers
+- Auto-Responder
+  * Send immediate confirmation of receipt
+  * Provide estimated response time
+- Inquiry Management
+  * Route inquiries to the appropriate department
+  * Integration with customer service management system (if applicable)
 ### User Authentication System
 - Email/Password Registration and Login
   * Secure password hashing and storage
@@ -117,27 +136,6 @@
   * Sales reports (daily, weekly, monthly)
   * Popular item tracking
 
-### FAQ Section
-- Comprehensive Q&A
-  * Cover common topics (reservations, menu, policies, etc.)
-  * Regular updates based on customer inquiries
-- Categorization
-  * Organize FAQ into logical categories for easy navigation
-  * Use clear, concise headings
-
-### Contact Form
-- User-Friendly Design
-  * Clear, easy-to-use form layout
-  * Minimal required fields to reduce friction
-- Form Validation
-  * Real-time validation for required fields
-  * Format checking for email addresses and phone numbers
-- Auto-Responder
-  * Send immediate confirmation of receipt
-  * Provide estimated response time
-- Inquiry Management
-  * Route inquiries to the appropriate department
-  * Integration with customer service management system (if applicable)
 
 
 ### Responsive Design
@@ -282,7 +280,6 @@
 - Performance Tracking
   * Monitor open rates, click-through rates, and conversions
   * A/B testing capabilities for email campaigns
-
 
 ## 5. Technical Stack and Development Practices
 
