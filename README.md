@@ -27,9 +27,7 @@
 - Categorization
   * Organize FAQ into logical categories for easy navigation
   * Use clear, concise headings
-
-### Contact Form
-- User-Friendly Design
+- Contact Form User-Friendly Design
   * Clear, easy-to-use form layout
   * Minimal required fields to reduce friction
 - Form Validation
@@ -40,7 +38,8 @@
   * Provide estimated response time
 - Inquiry Management
   * Route inquiries to the appropriate department
-  * Integration with customer service management system (if applicable)
+- Feedback places? Like up vote or down vote
+
 ### User Authentication System
 - Email/Password Registration and Login
   * Secure password hashing and storage
