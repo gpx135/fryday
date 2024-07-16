@@ -13,9 +13,6 @@ RUN pip install -r requirements.txt
 # Copy project code
 COPY . /code/
 
-# # Default command
-# CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
-
 
 # Default command
 CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
