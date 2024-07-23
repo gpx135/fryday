@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class APIIntegration(models.Model):
     """
@@ -15,6 +16,10 @@ class APIIntegration(models.Model):
     retry_attempts = models.IntegerField(default=3)  # Number of retry attempts for synchronization failures
     last_synced_at = models.DateTimeField(null=True)  # Timestamp of the last successful synchronization
 
+    class Meta:
+        verbose_name = _("API Integration")
+        verbose_name_plural = _("API Integrations")
+
     def __str__(self):
         return self.service_name
 
@@ -28,6 +33,10 @@ class SyncLog(models.Model):
     status = models.CharField(max_length=20, null=False)  # Status of the sync attempt, e.g., 'success', 'failure'
     message = models.TextField()  # Detailed message about the sync attempt
     synced_at = models.DateTimeField(auto_now_add=True)  # Timestamp of when the sync attempt occurred
+    
+    class Meta:
+        verbose_name = _("Sync Log")
+        verbose_name_plural = _("Sync Logs")
 
     def __str__(self):
         return f"{self.integration.service_name} - {self.sync_type} - {self.status}"

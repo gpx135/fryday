@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class EmailTemplate(models.Model):
     """
@@ -11,7 +12,11 @@ class EmailTemplate(models.Model):
     is_html = models.BooleanField(default=True)  # Flag indicating if the email body is in HTML format
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the template was created
     updated_at = models.DateTimeField(auto_now=True)  # Timestamp when the template was last updated
-
+    
+    class Meta:
+        verbose_name = _("Email Template")
+        verbose_name_plural = _("Email Templates")
+    
     def __str__(self):
         return self.name
 
@@ -24,6 +29,10 @@ class EmailTemplateTranslation(models.Model):
     language_id = models.IntegerField()  # Language ID for the translation, replace with ForeignKey(Language, on_delete=models.CASCADE) if Language model exists
     subject = models.CharField(max_length=255, null=False)  # Translated subject of the email
     body = models.TextField(null=False)  # Translated body content of the email
+
+    class Meta:
+        verbose_name = _("Email Template Translation")
+        verbose_name_plural = _("Email Template Translations")
 
     def __str__(self):
         return f"{self.email_template.name} - {self.language_id}"

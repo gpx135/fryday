@@ -1,0 +1,69 @@
+# General exclusions
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+*.bak
+
+# Git and version control
+.git
+.gitignore
+
+# Node.js (frontend)
+frontend/node_modules
+frontend/.next
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/npm-debug.log
+frontend/yarn-error.log
+frontend/yarn-debug.log
+frontend/.env
+frontend/.yarn
+frontend/.pnp.*
+
+# Python (backend)
+backend/__pycache__
+backend/*.pyc
+backend/*.pyo
+backend/*.pyd
+backend/.Python
+backend/env/
+backend/venv/
+backend/env.bak/
+backend/venv.bak/
+backend/pip-log.txt
+backend/pip-delete-this-directory.txt
+backend/htmlcov/
+backend.tox/
+backend/.coverage
+backend/.cache
+backend.pytest_cache/
+backend.coverage.*
+backend/*.cover
+backend/instance/
+backend/webassets-cache
+backend.scrapy
+backend/docs/_build/
+backend/target/
+backend/.env
+backend/.mypy_cache/
+backend/.pytest_cache/
+backend/.coverage
+backend/.pytype/
+backend/.hypothesis/
+
+# Build and deployment artifacts
+frontend/dist
+frontend/build
+backend/staticfiles/
+backend/media/
+backend/local_settings.py
+
+# IDE and editor files
+frontend/.idea
+frontend/.vscode
+backend/.idea
+backend/.vscode

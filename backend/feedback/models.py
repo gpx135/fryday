@@ -14,7 +14,7 @@ class Feedback(models.Model):
 
     class Meta:
         verbose_name = _("Feedback")
-        verbose_name_plural = _("Feedback")
+        verbose_name_plural = _("Feedbacks")
 
     def __str__(self):
         return f"Feedback from {self.user.username}"
@@ -33,6 +33,10 @@ class ExternalReview(models.Model):
     review_date = models.DateTimeField(null=False)  # Date when the review was created on the external platform
     created_at = models.DateTimeField(auto_now_add=True)  # Timestamp when the review was created in the local system
     updated_at = models.DateTimeField(auto_now=True)  # Timestamp when the review was last updated in the local system
+    
+    class Meta:
+        verbose_name = _("External Review")
+        verbose_name_plural = _("External Reviews")
 
     def __str__(self):
         return f"{self.platform} Review - {self.external_review_id}"
