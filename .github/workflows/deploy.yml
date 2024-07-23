@@ -17,10 +17,10 @@ jobs:
 
       - name: Check if secrets are set
         run: |
+          secrets=("DOCKERHUB_USERNAME" "DOCKERHUB_TOKEN" "POSTGRES_DB" "POSTGRES_USER" "POSTGRES_PASSWORD" "POSTGRES_HOST" "POSTGRES_PORT" "DJANGO_SECRET_KEY" "DJANGO_DEBUG" "DJANGO_SUPERUSER_USERNAME" "DJANGO_SUPERUSER_EMAIL" "DJANGO_SUPERUSER_PASSWORD" "RENDER_DEPLOY_HOOK")
           missing_secrets=()
-          for secret in DOCKERHUB_USERNAME DOCKERHUB_TOKEN POSTGRES_DB POSTGRES_USER POSTGRES_PASSWORD POSTGRES_HOST POSTGRES_PORT DJANGO_SECRET_KEY DJANGO_DEBUG DJANGO_SUPERUSER_USERNAME DJANGO_SUPERUSER_EMAIL DJANGO_SUPERUSER_PASSWORD RENDER_DEPLOY_HOOK
-          do
-            if [ -z "${{ secrets[secret] }}" ]; then
+          for secret in "${secrets[@]}"; do
+            if [ -z "${{ secrets[${secret}] }}" ]; then
               missing_secrets+=($secret)
             fi
           done
@@ -59,11 +59,9 @@ jobs:
           cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fryday:buildcache,mode=max
 
       - name: Deploy to Render
-        env:
-          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
         run: |
-          if [ -z "$deploy_url" ]; then
+          if [ -z "${{ secrets.RENDER_DEPLOY_HOOK }}" ]; then
             echo "Error: RENDER_DEPLOY_HOOK is not set"
             exit 1
           fi
-          curl -X POST $deploy_url
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
