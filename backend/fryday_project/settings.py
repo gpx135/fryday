@@ -29,7 +29,6 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'fryday-latest.onrender.com', 'www.fryday.fi']
 
-
 # Application definition
 
 INSTALLED_APPS = [
