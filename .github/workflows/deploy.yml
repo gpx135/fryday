@@ -3,48 +3,48 @@ name: Build and Deploy to Render
 on:
   push:
     branches:
-      - main
+      - main # Trigger the workflow on pushes to the main branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment: production
     env:
-      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-      POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
-      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
-      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-      POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
-      POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
-      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-      DJANGO_DEBUG: ${{ secrets.DJANGO_DEBUG }}
-      DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
-      DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
-      DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
-      RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }} # Docker Hub username stored in secrets
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }} # Docker Hub token stored in secrets
+      POSTGRES_DB: ${{ secrets.POSTGRES_DB }} # Postgres database name stored in secrets
+      POSTGRES_USER: ${{ secrets.POSTGRES_USER }} # Postgres username stored in secrets
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }} # Postgres password stored in secrets
+      POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }} # Postgres host stored in secrets
+      POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }} # Postgres port stored in secrets
+      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }} # Django secret key stored in secrets
+      DJANGO_DEBUG: ${{ secrets.DJANGO_DEBUG }} # Django debug setting stored in secrets
+      DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }} # Django superuser username stored in secrets
+      DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }} # Django superuser email stored in secrets
+      DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }} # Django superuser password stored in secrets
+      RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }} # Render deploy hook URL stored in secrets
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # Check out the code from the repository
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v2 # Set up Docker Buildx for building multi-platform images
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v3 # Log in to Docker Hub
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }} # Docker Hub username
+          password: ${{ secrets.DOCKERHUB_TOKEN }} # Docker Hub token
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v4 # Build and push Docker image
         with:
-          context: .
-          push: true
+          context: . # Set the context to the root of the repository
+          push: true # Push the built image to the registry
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/fryday:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/fryday:${{ github.sha }}
-          build-args: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/fryday:latest # Tag the image with 'latest'
+            ${{ secrets.DOCKERHUB_USERNAME }}/fryday:${{ github.sha }} # Tag the image with the commit SHA
+          build-args: | # Build arguments to pass to the Dockerfile
             POSTGRES_DB=${{ secrets.POSTGRES_DB }}
             POSTGRES_USER=${{ secrets.POSTGRES_USER }}
             POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
@@ -55,9 +55,9 @@ jobs:
             DJANGO_SUPERUSER_USERNAME=${{ secrets.DJANGO_SUPERUSER_USERNAME }}
             DJANGO_SUPERUSER_EMAIL=${{ secrets.DJANGO_SUPERUSER_EMAIL }}
             DJANGO_SUPERUSER_PASSWORD=${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
-          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fryday:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fryday:buildcache,mode=max
+          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fryday:buildcache # Use build cache from the registry
+          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/fryday:buildcache,mode=max # Push build cache to the registry
 
       - name: Deploy to Render
         run: |
-          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+          curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }} # Trigger deployment to Render
